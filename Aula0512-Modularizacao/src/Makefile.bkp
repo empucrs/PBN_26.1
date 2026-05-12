@@ -1,0 +1,11 @@
+all: main
+main: main.o dubfunc.o bibfunc.o
+	gcc -o main main.o dubfunc.o bibfunc.o
+main.o: main.c dubfunc.h bibfunc.h
+	gcc -c main.c
+dubfunc.o: dubfunc.c dubfunc.h bibfunc.h
+	gcc -c dubfunc.c
+bibfunc.o: bibfunc.c bibfunc.h
+	gcc -c bibfunc.c
+clean:
+	rm -f *.o main
